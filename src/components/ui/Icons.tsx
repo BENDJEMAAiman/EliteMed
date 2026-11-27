@@ -115,7 +115,7 @@ export const Star = ({ size = 20, ...rest }: IconProps) => (
   </svg>
 )
 
-// Dashboard specific icons
+// Dashboard & catalog icons
 export const BookOpen = (p: IconProps) => (
   <Base {...p}>
     <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
@@ -208,4 +208,37 @@ export const Calendar = (p: IconProps) => (
 )
 export const Zap = (p: IconProps) => (
   <Base {...p}><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" /></Base>
+)
+export const Dashboard = (p: IconProps) => (
+  <Base {...p}>
+    <rect width="7" height="7" x="3" y="3" rx="1" />
+    <rect width="7" height="7" x="14" y="3" rx="1" />
+    <rect width="7" height="7" x="14" y="14" rx="1" />
+    <rect width="7" height="7" x="3" y="14" rx="1" />
+  </Base>
+)
+export const Flask = (p: IconProps) => (
+  <Base {...p}>
+    <path d="M10 2v7.527a2 2 0 0 1-.211.896L4.72 20.55a1 1 0 0 0 .9 1.45h12.76a1 1 0 0 0 .9-1.45l-5.069-10.127A2 2 0 0 1 14 9.527V2" />
+    <path d="M8.5 2h7" /><path d="M7 16h10" />
+  </Base>
+)
+export const Layers = (p: IconProps) => (
+  <Base {...p}>
+    <path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z" />
+    <path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65" />
+    <path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65" />
+  </Base>
+)
+export const HeartPulse = (p: IconProps) => (
+  <Base {...p}>
+    <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7z" />
+    <path d="M3.22 12H9.5l.5-1 2 4.5 2-7 1.5 3.5h5.27" />
+  </Base>
+)
+export const PlusSquare = (p: IconProps) => (
+  <Base {...p}><rect width="18" height="18" x="3" y="3" rx="2" /><path d="M8 12h8" /><path d="M12 8v8" /></Base>
+)
+export const Asterisk = (p: IconProps) => (
+  <Base {...p}><path d="M12 6v12" /><path d="M17.196 9 6.804 15" /><path d="m6.804 9 10.392 6" /></Base>
 )

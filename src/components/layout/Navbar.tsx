@@ -7,6 +7,8 @@ import {
   Bookmark,
   Clipboard,
   CloseIcon,
+  Dashboard,
+  LogOut,
   Globe,
   HomeIcon,
   MenuIcon,
@@ -14,12 +16,20 @@ import {
 } from '../ui/Icons'
 import './Navbar.css'
 
-const LINKS = [
+interface NavItem {
+  to: string
+  label: string
+  icon: typeof HomeIcon
+  end?: boolean
+}
+
+const PUBLIC_LINKS: NavItem[] = [
   { to: '/', label: 'Accueil', icon: HomeIcon, end: true },
   { to: '/medecine', label: 'Médecine', icon: Stethoscope },
   { to: '/pharmacie', label: 'Pharmacie', icon: Clipboard },
   { to: '/medecine-dentaire', label: 'Médecine Dentaire', icon: Bookmark },
 ]
+const DASHBOARD_LINK: NavItem = { to: '/dashboard', label: 'Tableau de bord', icon: Dashboard }
 
 export default function Navbar() {
   const [open, setOpen] = useState(false)
@@ -35,9 +45,8 @@ export default function Navbar() {
     navigate('/')
   }
 
-  const firstName =
-    (user?.user_metadata?.full_name as string | undefined)?.split(' ')[0] ??
-    user?.email?.split('@')[0]
+  // "Tableau de bord" n'apparaît qu'une fois connecté
+  const links = user ? [...PUBLIC_LINKS, DASHBOARD_LINK] : PUBLIC_LINKS
 
   return (
     <header className={`navbar ${scrolled ? 'navbar--scrolled' : ''}`}>
@@ -48,7 +57,7 @@ export default function Navbar() {
         </Link>
 
         <nav className={`navbar__links ${open ? 'is-open' : ''}`} aria-label="Navigation principale">
-          {LINKS.map(({ to, label, icon: Icon, end }) => (
+          {links.map(({ to, label, icon: Icon, end }) => (
             <NavLink
               key={to}
               to={to}
@@ -90,14 +99,9 @@ export default function Navbar() {
         </span>
 
         {loading ? null : user ? (
-          <>
-            <Link to="/dashboard" className="btn btn--outline" onClick={close}>
-              Mon espace
-            </Link>
-            <button type="button" className="btn btn--light" onClick={handleSignOut}>
-              Déconnexion
-            </button>
-          </>
+          <button type="button" className="btn btn--outline" onClick={handleSignOut}>
+            <LogOut size={18} /> Déconnexion
+          </button>
         ) : (
           <>
             <Link to="/connexion" className="btn btn--outline" onClick={close}>

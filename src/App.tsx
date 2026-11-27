@@ -4,6 +4,7 @@ import AuthPage from './pages/AuthPage'
 import ComingSoonPage from './pages/ComingSoonPage'
 import DashboardPage from './pages/DashboardPage'
 import DashboardSubPage from './pages/DashboardSubPage'
+import FormationPage from './pages/FormationPage'
 import { useAuth } from './hooks/useAuth'
 
 function ProtectedRoute({ children }: { children: React.ReactNode }) {
@@ -45,12 +46,15 @@ export default function App() {
       <Route path="/dashboard/aide" element={<DashboardSubPage page="aide" />} />
 
       {/* Pages à venir */}
-      <Route path="/medecine" element={<ComingSoonPage title="Médecine" />} />
-      <Route path="/pharmacie" element={<ComingSoonPage title="Pharmacie" />} />
+      {/* Catalogues par faculté */}
+      <Route path="/medecine" element={<FormationPage key="medecine" faculty="medecine" />} />
+      <Route path="/pharmacie" element={<FormationPage key="pharmacie" faculty="pharmacie" />} />
       <Route
         path="/medecine-dentaire"
-        element={<ComingSoonPage title="Médecine Dentaire" />}
+        element={<FormationPage key="dentaire" faculty="medecine-dentaire" />}
       />
+      <Route path="/:faculty/:courseId" element={<ComingSoonPage title="Cours" />} />
+      <Route path="/tableau-de-bord" element={<Navigate to="/dashboard" replace />} />
       <Route path="/formations" element={<ComingSoonPage title="Formations" />} />
       <Route path="/a-propos" element={<ComingSoonPage title="À Propos" />} />
       <Route path="*" element={<ComingSoonPage title="Page introuvable" />} />
