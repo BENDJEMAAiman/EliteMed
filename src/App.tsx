@@ -2,6 +2,7 @@ import { Route, Routes } from 'react-router-dom'
 import HomePage from './pages/HomePage'
 import AuthPage from './pages/AuthPage'
 import ComingSoonPage from './pages/ComingSoonPage'
+import FormationPage from './pages/FormationPage'
 
 export default function App() {
   return (
@@ -17,12 +18,15 @@ export default function App() {
       />
 
       {/* Pages à venir */}
-      <Route path="/medecine" element={<ComingSoonPage title="Médecine" />} />
-      <Route path="/pharmacie" element={<ComingSoonPage title="Pharmacie" />} />
+      {/* Catalogues par faculté */}
+      <Route path="/medecine" element={<FormationPage key="medecine" faculty="medecine" />} />
+      <Route path="/pharmacie" element={<FormationPage key="pharmacie" faculty="pharmacie" />} />
       <Route
         path="/medecine-dentaire"
-        element={<ComingSoonPage title="Médecine Dentaire" />}
+        element={<FormationPage key="dentaire" faculty="medecine-dentaire" />}
       />
+      <Route path="/:faculty/:courseId" element={<ComingSoonPage title="Cours" />} />
+      <Route path="/tableau-de-bord" element={<ComingSoonPage title="Tableau de bord" />} />
       <Route path="/formations" element={<ComingSoonPage title="Formations" />} />
       <Route path="/a-propos" element={<ComingSoonPage title="À Propos" />} />
       <Route path="*" element={<ComingSoonPage title="Page introuvable" />} />

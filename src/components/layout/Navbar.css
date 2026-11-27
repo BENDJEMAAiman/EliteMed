@@ -40,7 +40,7 @@
 .navbar__links {
   display: flex;
   align-items: center;
-  gap: 28px;
+  gap: 24px;
 }
 .navbar__link {
   position: relative;
@@ -86,11 +86,6 @@
   color: #fff;
   font-weight: 600;
   font-size: 15px;
-}
-.navbar__user {
-  color: var(--blue-soft);
-  font-size: 14px;
-  font-weight: 500;
 }
 .navbar__actions--mobile,
 .navbar__toggle {
@@ -158,7 +153,7 @@
   }
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1120px) {
   .navbar__toggle {
     display: inline-flex;
   }
