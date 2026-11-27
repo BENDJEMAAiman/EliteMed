@@ -7,6 +7,14 @@ import DashboardSubPage from './pages/DashboardSubPage'
 import FormationPage from './pages/FormationPage'
 import AdminDashboardPage from './pages/AdminDashboardPage'
 import RequireAdmin from './components/auth/RequireAdmin'
+import { useAuth } from './hooks/useAuth'
+
+function ProtectedRoute({ children }: { children: React.ReactNode }) {
+  const { session, loading } = useAuth()
+  if (loading) return null
+  if (!session) return <Navigate to="/connexion" replace />
+  return <>{children}</>
+}
 
 export default function App() {
   return (
@@ -57,7 +65,7 @@ export default function App() {
           </RequireAdmin>
         }
       />
-      <Route path="/tableau-de-bord" element={<ComingSoonPage title="Tableau de bord" />} />
+      <Route path="/tableau-de-bord" element={<Navigate to="/dashboard" replace />} />
       <Route path="/formations" element={<ComingSoonPage title="Formations" />} />
       <Route path="/a-propos" element={<ComingSoonPage title="À Propos" />} />
       <Route path="*" element={<ComingSoonPage title="Page introuvable" />} />

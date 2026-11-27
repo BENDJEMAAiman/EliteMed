@@ -243,9 +243,6 @@ export const Asterisk = (p: IconProps) => (
   <Base {...p}><path d="M12 6v12" /><path d="M17.196 9 6.804 15" /><path d="m6.804 9 10.392 6" /></Base>
 )
 
-export const Clock = (p: IconProps) => (
-  <Base {...p}><circle cx="12" cy="12" r="10" /><path d="M12 6v6l4 2" /></Base>
-)
 export const Receipt = (p: IconProps) => (
   <Base {...p}>
     <path d="M4 2v20l2-1 2 1 2-1 2 1 2-1 2 1 2-1 2 1V2l-2 1-2-1-2 1-2-1-2 1-2-1-2 1z" />
