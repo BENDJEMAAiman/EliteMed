@@ -13,31 +13,36 @@ export function useEnrollments() {
   const [error, setError] = useState('')
   const [busyId, setBusyId] = useState<string | null>(null)
 
-  const load = useCallback(async () => {
-    const { data, error } = await fetchEnrollments()
-    if (error) setError(error.message)
-    else {
-      setError('')
-      setItems(data)
-    }
-    setLoading(false)
-  }, [])
-
   useEffect(() => {
-    load()
+    let active = true
+
+    const applyFetch = () => {
+      fetchEnrollments().then(({ data, error }) => {
+        if (!active) return
+        if (error) setError(error.message)
+        else {
+          setError('')
+          setItems(data)
+        }
+        setLoading(false)
+      })
+    }
+
+    applyFetch()
 
     // Nouvelles demandes / changements en direct (si Realtime est activé)
     const channel = supabase
       .channel('enrollments-admin')
       .on('postgres_changes', { event: '*', schema: 'public', table: 'enrollments' }, () => {
-        load()
+        applyFetch()
       })
       .subscribe()
 
     return () => {
+      active = false
       supabase.removeChannel(channel)
     }
-  }, [load])
+  }, [])
 
   const setStatus = useCallback(async (id: string, status: EnrollmentStatus) => {
     setBusyId(id)

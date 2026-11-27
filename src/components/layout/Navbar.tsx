@@ -30,7 +30,7 @@ const PUBLIC_LINKS: NavItem[] = [
   { to: '/medecine-dentaire', label: 'Médecine Dentaire', icon: Bookmark },
 ]
 const dashboardLink = (isAdmin: boolean): NavItem => ({
-  to: isAdmin ? '/admin' : '/tableau-de-bord',
+  to: isAdmin ? '/admin' : '/dashboard',
   label: 'Tableau de bord',
   icon: Dashboard,
 })
