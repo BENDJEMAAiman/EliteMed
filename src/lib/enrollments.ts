@@ -32,6 +32,16 @@ export async function fetchEnrollments() {
   return { data: (data ?? []) as Enrollment[], error }
 }
 
+/** Inscriptions de l'étudiant connecté, les plus récentes d'abord. */
+export async function fetchMyEnrollments(userId: string) {
+  const { data, error } = await supabase
+    .from('enrollments')
+    .select('*')
+    .eq('user_id', userId)
+    .order('created_at', { ascending: false })
+  return { data: (data ?? []) as Enrollment[], error }
+}
+
 export async function updateEnrollmentStatus(id: string, status: EnrollmentStatus) {
   const { data, error } = await supabase
     .from('enrollments')
