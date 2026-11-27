@@ -1,0 +1,42 @@
+/* Design tokens EliteMed (issus du Figma) */
+:root {
+  --navy: #08336b;
+  --navy-deep: #062a58;
+  --blue: #0571cb;
+  --blue-light: #5e9cf5;
+  --blue-soft: #acc7ff;
+  --blue-tint: #dbe6fd;
+  --yellow: #f5d650;
+  --yellow-soft: #fff0c0;
+  --ink: #1a1b1f;
+  --muted: #5a5f6b;
+  --surface: #faf9fe;
+  --surface-alt: #f4f3f8;
+  --border: #c4c6d1;
+  --chip: #e9e7ef;
+
+  --radius: 12px;
+  --container: 1280px;
+  --gutter: 32px;
+  --nav-h: 68px;
+
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--nav-h) + 16px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
