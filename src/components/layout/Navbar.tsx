@@ -91,8 +91,10 @@ export default function Navbar() {
 
         {loading ? null : user ? (
           <>
-            <span className="navbar__user">Bonjour, {firstName}</span>
-            <button type="button" className="btn btn--outline" onClick={handleSignOut}>
+            <Link to="/dashboard" className="btn btn--outline" onClick={close}>
+              Mon espace
+            </Link>
+            <button type="button" className="btn btn--light" onClick={handleSignOut}>
               Déconnexion
             </button>
           </>
