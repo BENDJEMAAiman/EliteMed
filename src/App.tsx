@@ -1,62 +1,74 @@
+import { useState } from "react";
+import { supabase } from "./lib/supabase";
+import logo from "./assets/EliteMed_flat 3.svg";
+import resetImage from "./assets/reset_password.svg";
+import "./App.css";
 
-import { useState } from 'react'
-import { supabase } from './lib/supabase'
-import logo from './assets/EliteMed_flat 3.svg'
-import resetImage from './assets/reset_password.svg'
-import './App.css'
-
-type Page = 'login' | 'signup' | 'forgot'
+type Page = "login" | "signup" | "forgot";
 
 function App() {
-  const [page, setPage] = useState<Page>('login')
+  const [page, setPage] = useState<Page>("login");
 
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-  const [fullName, setFullName] = useState('')
-  const [phone, setPhone] = useState('')
-  const [confirmPassword, setConfirmPassword] = useState('')
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [fullName, setFullName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
 
-  const [showPassword, setShowPassword] = useState(false)
-  const [loading, setLoading] = useState(false)
-  const [message, setMessage] = useState('')
-  const [error, setError] = useState('')
+  const [showPassword, setShowPassword] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [message, setMessage] = useState("");
+  const [error, setError] = useState("");
 
   function changePage(newPage: Page) {
-    setPage(newPage)
-    setMessage('')
-    setError('')
+    setPage(newPage);
+    setMessage("");
+    setError("");
   }
 
+  const handleGoogleSignIn = async () => {
+    const { error } = await supabase.auth.signInWithOAuth({
+      provider: "google",
+      options: {
+        redirectTo: window.location.origin,
+      },
+    });
+
+    if (error) {
+      setMessage(error.message);
+    }
+  };
+
   async function handleLogin(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault()
-    setLoading(true)
-    setError('')
-    setMessage('')
+    e.preventDefault();
+    setLoading(true);
+    setError("");
+    setMessage("");
 
     const { error } = await supabase.auth.signInWithPassword({
       email,
       password,
-    })
+    });
 
     if (error) {
-      setError(error.message)
+      setError(error.message);
     } else {
-      setMessage('Connexion réussie !')
+      setMessage("Connexion réussie !");
     }
 
-    setLoading(false)
+    setLoading(false);
   }
 
   async function handleSignup(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault()
-    setLoading(true)
-    setError('')
-    setMessage('')
+    e.preventDefault();
+    setLoading(true);
+    setError("");
+    setMessage("");
 
     if (password !== confirmPassword) {
-      setError('Les mots de passe ne correspondent pas.')
-      setLoading(false)
-      return
+      setError("Les mots de passe ne correspondent pas.");
+      setLoading(false);
+      return;
     }
 
     const { data, error } = await supabase.auth.signUp({
@@ -68,52 +80,52 @@ function App() {
           phone: phone,
         },
       },
-    })
+    });
 
     if (error) {
-      setError(error.message)
+      setError(error.message);
     } else if (data.session) {
-      setMessage('Votre compte a été créé avec succès !')
+      setMessage("Votre compte a été créé avec succès !");
     } else {
       setMessage(
-        'Compte créé. Vérifiez votre e-mail pour confirmer votre inscription.',
-      )
+        "Compte créé. Vérifiez votre e-mail pour confirmer votre inscription.",
+      );
     }
 
-    setLoading(false)
+    setLoading(false);
   }
 
   async function handleForgotPassword(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault()
-    setLoading(true)
-    setError('')
-    setMessage('')
+    e.preventDefault();
+    setLoading(true);
+    setError("");
+    setMessage("");
 
-    const { error } = await supabase.auth.resetPasswordForEmail(email)
+    const { error } = await supabase.auth.resetPasswordForEmail(email);
 
     if (error) {
-      setError(error.message)
+      setError(error.message);
     } else {
-      setMessage('Un lien de réinitialisation a été envoyé à votre e-mail.')
+      setMessage("Un lien de réinitialisation a été envoyé à votre e-mail.");
     }
 
-    setLoading(false)
+    setLoading(false);
   }
 
   async function handleGoogleLogin() {
-    setError('')
+    setError("");
     const { error } = await supabase.auth.signInWithOAuth({
-      provider: 'google',
-    })
+      provider: "google",
+    });
 
     if (error) {
-      setError(error.message)
+      setError(error.message);
     }
   }
 
   async function handleLogout() {
-    await supabase.auth.signOut()
-    setMessage('Vous êtes déconnecté.')
+    await supabase.auth.signOut();
+    setMessage("Vous êtes déconnecté.");
   }
 
   return (
@@ -122,7 +134,7 @@ function App() {
         <div className="auth-card">
           <img className="auth-logo" src={logo} alt="EliteMed" />
 
-          {page === 'login' && (
+          {page === "login" && (
             <>
               <h1>Connexion à votre espace académique</h1>
               <p className="subtitle">
@@ -143,7 +155,7 @@ function App() {
                 <label>Mot de passe *</label>
                 <div className="password-field">
                   <input
-                    type={showPassword ? 'text' : 'password'}
+                    type={showPassword ? "text" : "password"}
                     placeholder="Mot de passe"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
@@ -154,7 +166,7 @@ function App() {
                     className="show-password"
                     onClick={() => setShowPassword(!showPassword)}
                   >
-                    {showPassword ? 'Masquer' : 'Afficher'}
+                    {showPassword ? "Masquer" : "Afficher"}
                   </button>
                 </div>
 
@@ -167,14 +179,14 @@ function App() {
                   <button
                     type="button"
                     className="text-button"
-                    onClick={() => changePage('forgot')}
+                    onClick={() => changePage("forgot")}
                   >
                     Mot de passe oublié ?
                   </button>
                 </div>
 
                 <button className="primary-button" disabled={loading}>
-                  {loading ? 'Connexion...' : 'Se connecter'}
+                  {loading ? "Connexion..." : "Se connecter"}
                 </button>
               </form>
 
@@ -190,10 +202,10 @@ function App() {
               </button>
 
               <p className="bottom-text">
-                Vous n'avez pas encore de compte ?{' '}
+                Vous n'avez pas encore de compte ?{" "}
                 <button
                   className="text-button"
-                  onClick={() => changePage('signup')}
+                  onClick={() => changePage("signup")}
                 >
                   Créer un compte étudiant →
                 </button>
@@ -201,7 +213,7 @@ function App() {
             </>
           )}
 
-          {page === 'signup' && (
+          {page === "signup" && (
             <>
               <h1>Créez votre espace académique</h1>
               <p className="subtitle">
@@ -258,15 +270,15 @@ function App() {
                 />
 
                 <button className="primary-button" disabled={loading}>
-                  {loading ? 'Création...' : 'Créer un compte'}
+                  {loading ? "Création..." : "Créer un compte"}
                 </button>
               </form>
 
               <p className="bottom-text">
-                Vous avez déjà un compte ?{' '}
+                Vous avez déjà un compte ?{" "}
                 <button
                   className="text-button"
-                  onClick={() => changePage('login')}
+                  onClick={() => changePage("login")}
                 >
                   Connectez-vous
                 </button>
@@ -274,7 +286,7 @@ function App() {
             </>
           )}
 
-          {page === 'forgot' && (
+          {page === "forgot" && (
             <>
               <img
                 className="reset-image"
@@ -299,14 +311,16 @@ function App() {
                 />
 
                 <button className="primary-button" disabled={loading}>
-                  {loading ? 'Envoi...' : 'Envoyer le lien de réinitialisation →'}
+                  {loading
+                    ? "Envoi..."
+                    : "Envoyer le lien de réinitialisation →"}
                 </button>
               </form>
 
               <p className="bottom-text">
                 <button
                   className="text-button"
-                  onClick={() => changePage('login')}
+                  onClick={() => changePage("login")}
                 >
                   ← Retour à la page de connexion
                 </button>
@@ -317,7 +331,7 @@ function App() {
           {message && <p className="success-message">{message}</p>}
           {error && <p className="error-message">{error}</p>}
 
-          {message === 'Connexion réussie !' && (
+          {message === "Connexion réussie !" && (
             <button className="logout-button" onClick={handleLogout}>
               Se déconnecter
             </button>
@@ -327,7 +341,7 @@ function App() {
 
       <div className="auth-blue-panel" />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
