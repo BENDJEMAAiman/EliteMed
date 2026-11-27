@@ -151,3 +151,26 @@ export const PlusSquare = (p: IconProps) => (
 export const Asterisk = (p: IconProps) => (
   <Base {...p}><path d="M12 6v12" /><path d="M17.196 9 6.804 15" /><path d="m6.804 9 10.392 6" /></Base>
 )
+
+export const Clock = (p: IconProps) => (
+  <Base {...p}><circle cx="12" cy="12" r="10" /><path d="M12 6v6l4 2" /></Base>
+)
+export const Receipt = (p: IconProps) => (
+  <Base {...p}>
+    <path d="M4 2v20l2-1 2 1 2-1 2 1 2-1 2 1 2-1 2 1V2l-2 1-2-1-2 1-2-1-2 1-2-1-2 1z" />
+    <path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8" />
+    <path d="M12 17.5v-11" />
+  </Base>
+)
+export const BadgeCheck = (p: IconProps) => (
+  <Base {...p}>
+    <path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76z" />
+    <path d="m9 12 2 2 4-4" />
+  </Base>
+)
+export const Check = (p: IconProps) => (
+  <Base {...p}><path d="M20 6 9 17l-5-5" /></Base>
+)
+export const Undo = (p: IconProps) => (
+  <Base {...p}><path d="M3 7v6h6" /><path d="M21 17a9 9 0 0 0-9-9 9 9 0 0 0-6 2.3L3 13" /></Base>
+)

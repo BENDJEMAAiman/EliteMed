@@ -29,12 +29,16 @@ const PUBLIC_LINKS: NavItem[] = [
   { to: '/pharmacie', label: 'Pharmacie', icon: Clipboard },
   { to: '/medecine-dentaire', label: 'Médecine Dentaire', icon: Bookmark },
 ]
-const DASHBOARD_LINK: NavItem = { to: '/tableau-de-bord', label: 'Tableau de bord', icon: Dashboard }
+const dashboardLink = (isAdmin: boolean): NavItem => ({
+  to: isAdmin ? '/admin' : '/tableau-de-bord',
+  label: 'Tableau de bord',
+  icon: Dashboard,
+})
 
 export default function Navbar() {
   const [open, setOpen] = useState(false)
   const scrolled = useScrolled(8)
-  const { user, loading, signOut } = useAuth()
+  const { user, isAdmin, loading, signOut } = useAuth()
   const navigate = useNavigate()
 
   const close = () => setOpen(false)
@@ -46,7 +50,7 @@ export default function Navbar() {
   }
 
   // "Tableau de bord" n'apparaît qu'une fois connecté
-  const links = user ? [...PUBLIC_LINKS, DASHBOARD_LINK] : PUBLIC_LINKS
+  const links = user ? [...PUBLIC_LINKS, dashboardLink(isAdmin)] : PUBLIC_LINKS
 
   return (
     <header className={`navbar ${scrolled ? 'navbar--scrolled' : ''}`}>

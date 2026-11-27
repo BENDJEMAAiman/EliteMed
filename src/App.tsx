@@ -3,6 +3,8 @@ import HomePage from './pages/HomePage'
 import AuthPage from './pages/AuthPage'
 import ComingSoonPage from './pages/ComingSoonPage'
 import FormationPage from './pages/FormationPage'
+import AdminDashboardPage from './pages/AdminDashboardPage'
+import RequireAdmin from './components/auth/RequireAdmin'
 
 export default function App() {
   return (
@@ -26,6 +28,15 @@ export default function App() {
         element={<FormationPage key="dentaire" faculty="medecine-dentaire" />}
       />
       <Route path="/:faculty/:courseId" element={<ComingSoonPage title="Cours" />} />
+      {/* Espace administrateur */}
+      <Route
+        path="/admin"
+        element={
+          <RequireAdmin>
+            <AdminDashboardPage />
+          </RequireAdmin>
+        }
+      />
       <Route path="/tableau-de-bord" element={<ComingSoonPage title="Tableau de bord" />} />
       <Route path="/formations" element={<ComingSoonPage title="Formations" />} />
       <Route path="/a-propos" element={<ComingSoonPage title="À Propos" />} />
