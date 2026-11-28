@@ -33,6 +33,8 @@ export interface Course {
   overview?: string
   outcomes?: string[]
   chapters?: CourseChapter[]
+  driveUrl?: string
+  qcmDriveUrl?: string
 }
 
 export interface Faculty {
@@ -356,6 +358,8 @@ export interface ResolvedCourse {
   overview: string
   outcomes: string[]
   chapters: CourseChapter[]
+  driveUrl: string
+  qcmDriveUrl: string
 }
 
 /** Retrouve un cours (et complète ses valeurs par défaut si non renseignées). */
@@ -405,6 +409,8 @@ function resolveDetails(faculty: Faculty, course: Course): ResolvedCourse {
         isExam: true,
       },
     ],
+    driveUrl: course.driveUrl ?? 'https://drive.google.com/',
+    qcmDriveUrl: course.qcmDriveUrl ?? 'https://drive.google.com/',
   }
 }
 

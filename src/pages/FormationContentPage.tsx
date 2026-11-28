@@ -44,7 +44,7 @@ export default function FormationContentPage() {
     )
   }
 
-  const { faculty, course, qcmCount, chapters } = resolved
+  const { faculty, course, qcmCount, chapters, driveUrl, qcmDriveUrl } = resolved
   const refCode = enrollment?.ref ?? 'REF-EM-2026-0418'
 
   return (
@@ -94,7 +94,7 @@ export default function FormationContentPage() {
                 <span>Fiches Synoptiques</span>
               </div>
               <a
-                href={`https://drive.google.com/`}
+                href={driveUrl}
                 target="_blank"
                 rel="noreferrer"
                 className="access-card__btn access-card__btn--navy"
@@ -119,13 +119,15 @@ export default function FormationContentPage() {
                 <span>Annales Corrigées</span>
                 <span>Mode Examen</span>
               </div>
-              <Link
-                to={`/${faculty.key}/${course.id}`}
+              <a
+                href={qcmDriveUrl}
+                target="_blank"
+                rel="noreferrer"
                 className="access-card__btn access-card__btn--blue"
               >
                 Accéder aux QCM &amp; Exercices
                 <ExternalLink size={15} />
-              </Link>
+              </a>
             </article>
           </div>
 
