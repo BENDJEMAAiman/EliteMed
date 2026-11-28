@@ -1,0 +1,294 @@
+/* ============ Page Paiement (Finaliser votre inscription) ============ */
+.payment-page {
+  background: var(--surface);
+  padding: 36px 0 72px;
+  min-height: 70vh;
+}
+
+.payment-page__back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 20px;
+  color: var(--navy);
+  font-size: 13.5px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.payment-page__back:hover {
+  text-decoration: underline;
+}
+
+.payment-page__head h1 {
+  margin: 0;
+  color: var(--ink);
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.payment-page__head p {
+  margin: 6px 0 28px;
+  color: var(--muted);
+  font-size: 14.5px;
+}
+
+.payment-page__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(320px, 1fr);
+  gap: 24px;
+  align-items: start;
+}
+
+/* ---- Carte gauche ---- */
+.payment-card {
+  padding: 28px;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.payment-card__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.payment-card__pills {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.payment-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.payment-status--en_attente { background: var(--yellow-soft); color: #5c4a00; }
+.payment-status--confirme { background: var(--blue-tint); color: var(--navy); }
+.payment-status--paye { background: #d9f2e1; color: #176b37; }
+.payment-status--rejete { background: #fde4e4; color: #b42318; }
+
+.payment-level {
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: var(--blue-tint);
+  color: var(--navy);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.payment-card__ref {
+  color: var(--muted);
+  font-family: ui-monospace, 'SFMono-Regular', Menlo, monospace;
+  font-size: 12px;
+}
+
+.payment-card h2 {
+  margin: 0 0 10px;
+  color: var(--ink);
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.payment-card__desc {
+  margin: 0 0 24px;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.payment-card__meta {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  padding-bottom: 22px;
+  border-bottom: 1px solid var(--chip);
+}
+
+.payment-card__meta span {
+  display: block;
+  color: var(--muted);
+  font-size: 12px;
+  margin-bottom: 4px;
+}
+
+.payment-card__meta strong {
+  color: var(--ink);
+  font-size: 14.5px;
+  font-weight: 700;
+}
+
+.payment-card__price {
+  color: var(--navy) !important;
+  font-size: 17px !important;
+}
+
+.payment-card__foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 14px;
+  padding-top: 20px;
+}
+
+.payment-card__foot span {
+  color: var(--muted);
+  font-size: 12.5px;
+}
+
+.payment-card__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 42px;
+  padding: 0 20px;
+  border: none;
+  border-radius: 8px;
+  background: var(--navy);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  transition: background-color 0.2s, transform 0.2s var(--ease);
+}
+
+.payment-card__btn:hover {
+  background: #0b4b9e;
+  transform: translateY(-1px);
+}
+
+/* ---- Carte droite ---- */
+.payment-side {
+  padding: 24px;
+  background: #fff;
+  border: 1.5px solid var(--yellow);
+  border-radius: var(--radius);
+  transition: box-shadow 0.25s var(--ease);
+}
+
+.payment-side.is-highlighted {
+  box-shadow: 0 0 0 4px rgba(245, 214, 80, 0.35);
+}
+
+.payment-side__eyebrow {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--blue);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+
+.payment-side h3 {
+  margin: 0 0 8px;
+  color: var(--ink);
+  font-size: 19px;
+  font-weight: 700;
+}
+
+.payment-side > p {
+  margin: 0 0 18px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.payment-side__details {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 14px 16px;
+  margin-bottom: 18px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+
+.payment-side__details div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 13px;
+}
+
+.payment-side__details span {
+  color: var(--muted);
+}
+
+.payment-side__details strong {
+  color: var(--ink);
+  font-family: ui-monospace, 'SFMono-Regular', Menlo, monospace;
+  font-size: 12.5px;
+}
+
+.payment-side__actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.payment-side__btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  height: 44px;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 13.5px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: opacity 0.2s, transform 0.2s var(--ease);
+}
+
+.payment-side__btn:hover {
+  opacity: 0.92;
+  transform: translateY(-1px);
+}
+
+.payment-side__btn--navy { background: var(--navy); }
+.payment-side__btn--blue { background: var(--blue); }
+
+.payment-side__note {
+  margin: 14px 0 0 !important;
+  text-align: center;
+  color: var(--muted);
+  font-size: 11.5px !important;
+  line-height: 1.5;
+}
+
+.payment-card--skeleton {
+  height: 280px;
+  background: linear-gradient(90deg, #fff 25%, var(--surface-alt) 50%, #fff 75%);
+  background-size: 200% 100%;
+  animation: pay-shimmer 1.4s linear infinite;
+}
+
+@keyframes pay-shimmer {
+  to { background-position: -200% 0; }
+}
+
+@media (max-width: 900px) {
+  .payment-page__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .payment-page__head h1 { font-size: 26px; }
+  .payment-card__meta { grid-template-columns: 1fr; }
+}

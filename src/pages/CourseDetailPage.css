@@ -1,0 +1,372 @@
+/* ============ Page Détails d'une Formation ============ */
+.course-detail {
+  background: var(--surface);
+  padding-top: 28px;
+}
+
+.course-detail__back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 24px;
+  color: var(--navy);
+  font-size: 13.5px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.course-detail__back:hover {
+  text-decoration: underline;
+}
+
+.course-detail__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 340px;
+  gap: 28px;
+  align-items: start;
+  padding-bottom: 56px;
+}
+
+.course-detail__main {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.course-detail__badges {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.course-detail__pill {
+  padding: 4px 12px;
+  border-radius: 999px;
+  background: var(--blue-tint);
+  color: var(--navy);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.course-detail__level {
+  padding: 4px 12px;
+  border-radius: 999px;
+  background: var(--chip);
+  color: #44474f;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.course-detail__main h1 {
+  margin: 0;
+  color: var(--ink);
+  font-size: 36px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+
+.course-detail__overview {
+  margin: 0;
+  color: var(--muted);
+  font-size: 15.5px;
+  line-height: 1.65;
+}
+
+/* ---- 4 métriques ---- */
+.course-detail__metrics {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.metric-box {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 14px 16px;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+
+.metric-box svg {
+  color: var(--blue);
+  margin-bottom: 4px;
+}
+
+.metric-box span {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.metric-box strong {
+  color: var(--ink);
+  font-size: 14.5px;
+  font-weight: 700;
+}
+
+/* ---- Cartes contenu ---- */
+.detail-card {
+  padding: 24px;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.detail-card h2 {
+  margin: 0;
+  color: var(--ink);
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.detail-card__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.detail-card__summary {
+  color: var(--muted);
+  font-family: ui-monospace, 'SFMono-Regular', Menlo, monospace;
+  font-size: 12px;
+}
+
+.outcomes-grid {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px 24px;
+  margin: 18px 0 0;
+  padding: 0;
+}
+
+.outcomes-grid li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  color: #44474f;
+  font-size: 13.5px;
+  line-height: 1.55;
+}
+
+.outcomes-grid svg {
+  color: var(--blue);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* ---- Programme ---- */
+.syllabus-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.syllabus-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px 0;
+  border-top: 1px solid var(--chip);
+}
+
+.syllabus-item__left {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.syllabus-item__left svg {
+  color: var(--blue);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.syllabus-item__left strong {
+  display: block;
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.syllabus-item__left p {
+  margin: 3px 0 0;
+  color: var(--muted);
+  font-size: 12.5px;
+}
+
+.syllabus-item__meta {
+  color: var(--muted);
+  font-family: ui-monospace, 'SFMono-Regular', Menlo, monospace;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+/* ---- Carte tarifaire ---- */
+.course-detail__aside {
+  position: sticky;
+  top: calc(var(--nav-h) + 24px);
+}
+
+.pricing-card {
+  padding: 24px;
+  background: #fff;
+  border: 1.5px solid var(--yellow);
+  border-radius: var(--radius);
+}
+
+.pricing-card__badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 6px;
+  background: var(--yellow-soft);
+  color: #5c4a00;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.pricing-card__price {
+  margin-top: 12px;
+  color: var(--navy);
+  font-size: 32px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.pricing-card__period {
+  margin: 6px 0 18px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--chip);
+  color: var(--muted);
+  font-size: 12.5px;
+  line-height: 1.45;
+}
+
+.pricing-card__features {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 0 0 20px;
+  padding: 0;
+}
+
+.pricing-card__features li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #44474f;
+  font-size: 13px;
+}
+
+.pricing-card__features svg {
+  color: var(--blue);
+  flex-shrink: 0;
+}
+
+.pricing-card__field {
+  margin-bottom: 16px;
+}
+
+.pricing-card__field label {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--ink);
+  font-size: 12.5px;
+  font-weight: 600;
+}
+
+.pricing-card__field select {
+  width: 100%;
+  height: 40px;
+  padding: 0 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: #fff;
+  color: var(--ink);
+  font-size: 13.5px;
+  outline: none;
+}
+
+.pricing-card__field select:focus {
+  border-color: var(--blue);
+}
+
+.pricing-card__cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  height: 44px;
+  border-radius: 8px;
+  background: var(--navy);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 0.2s, transform 0.2s var(--ease);
+}
+
+.pricing-card__cta:hover {
+  background: #0b4b9e;
+  transform: translateY(-2px);
+}
+
+/* ---- Bandeau CTA bas ---- */
+.course-detail__banner {
+  background: var(--navy);
+  color: #fff;
+  padding: 56px 0;
+  text-align: center;
+}
+
+.course-detail__banner-inner {
+  max-width: 720px;
+}
+
+.course-detail__banner h2 {
+  margin: 0;
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.course-detail__banner p {
+  margin: 12px auto 28px;
+  color: var(--blue-tint);
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.course-detail__banner-actions {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 960px) {
+  .course-detail__grid {
+    grid-template-columns: 1fr;
+  }
+  .course-detail__aside {
+    position: static;
+  }
+  .course-detail__metrics {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .course-detail__main h1 { font-size: 28px; }
+  .outcomes-grid { grid-template-columns: 1fr; }
+  .syllabus-item { flex-direction: column; align-items: flex-start; gap: 8px; }
+}

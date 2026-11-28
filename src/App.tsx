@@ -4,6 +4,10 @@ import AuthPage from './pages/AuthPage'
 import ComingSoonPage from './pages/ComingSoonPage'
 import DashboardPage from './pages/DashboardPage'
 import FormationPage from './pages/FormationPage'
+import CourseDetailPage from './pages/CourseDetailPage'
+import JoinFormationPage from './pages/JoinFormationPage'
+import PaymentPage from './pages/PaymentPage'
+import FormationContentPage from './pages/FormationContentPage'
 import AdminDashboardPage from './pages/AdminDashboardPage'
 import RequireAdmin from './components/auth/RequireAdmin'
 import { useAuth } from './hooks/useAuth'
@@ -46,7 +50,11 @@ export default function App() {
         path="/medecine-dentaire"
         element={<FormationPage key="dentaire" faculty="medecine-dentaire" />}
       />
-      <Route path="/:faculty/:courseId" element={<ComingSoonPage title="Cours" />} />
+      <Route path="/:faculty/:courseId" element={<CourseDetailPage />} />
+      <Route path="/:faculty/:courseId/rejoindre" element={<JoinFormationPage />} />
+      <Route path="/paiement/:enrollmentId" element={<PaymentPage />} />
+      <Route path="/paiement" element={<PaymentPage />} />
+      <Route path="/contenu/:courseId" element={<FormationContentPage />} />
       {/* Espace administrateur */}
       <Route
         path="/admin"
