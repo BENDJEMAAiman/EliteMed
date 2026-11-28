@@ -124,7 +124,27 @@ export default function DashboardPage() {
                       {e.course_title} — {e.level_label}
                     </h2>
                   </div>
-                  <span className="student-dash__price">{formatPrice(e.price)}</span>
+                  <div className="student-dash__card-side">
+                    <span className="student-dash__price">{formatPrice(e.price)}</span>
+                    {(e.status === 'en_attente' || e.status === 'confirme') && (
+                      <Link
+                        to={`/paiement/${e.id}`}
+                        state={{ enrollment: e }}
+                        className="student-dash__card-btn student-dash__card-btn--navy"
+                      >
+                        Finaliser le paiement
+                      </Link>
+                    )}
+                    {e.status === 'paye' && (
+                      <Link
+                        to={`/contenu/${e.course_id ?? 'anatomie-osteologie'}`}
+                        state={{ enrollment: e }}
+                        className="student-dash__card-btn student-dash__card-btn--blue"
+                      >
+                        Accéder au contenu
+                      </Link>
+                    )}
+                  </div>
                 </article>
               ))}
             </div>

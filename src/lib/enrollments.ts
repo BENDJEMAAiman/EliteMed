@@ -7,6 +7,7 @@ export interface Enrollment {
   id: string
   ref: string
   created_at: string
+  course_id?: string
   course_title: string
   level_label: string
   price: number
@@ -40,6 +41,36 @@ export async function fetchMyEnrollments(userId: string) {
     .eq('user_id', userId)
     .order('created_at', { ascending: false })
   return { data: (data ?? []) as Enrollment[], error }
+}
+
+/** Récupère une inscription par son identifiant. */
+export async function fetchEnrollmentById(id: string) {
+  const { data, error } = await supabase
+    .from('enrollments')
+    .select('*')
+    .eq('id', id)
+    .maybeSingle()
+  return { data: data as Enrollment | null, error }
+}
+
+export interface CreateEnrollmentInput {
+  user_id: string
+  course_id: string
+  course_title: string
+  level_label: string
+  price: number
+  student_name: string
+  student_phone: string
+}
+
+/** Crée une nouvelle demande d'inscription (statut initial `en_attente`). */
+export async function createEnrollment(input: CreateEnrollmentInput) {
+  const { data, error } = await supabase
+    .from('enrollments')
+    .insert({ ...input, status: 'en_attente' })
+    .select()
+    .single()
+  return { data: data as Enrollment | null, error }
 }
 
 export async function updateEnrollmentStatus(id: string, status: EnrollmentStatus) {

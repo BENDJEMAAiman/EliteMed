@@ -1,0 +1,355 @@
+/* ============ Page Rejoindre Formation ============ */
+.join-page {
+  background: var(--surface);
+  padding-bottom: 64px;
+}
+
+.join-hero {
+  background: var(--navy);
+  color: #fff;
+  border-bottom: 3px solid var(--yellow);
+  padding: 36px 0 112px;
+  text-align: center;
+}
+
+.join-hero__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+.join-hero__back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  color: #fff;
+  font-size: 12.5px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.join-hero__back:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.join-hero__tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 14px;
+  border-radius: 999px;
+  background: rgba(5, 113, 203, 0.45);
+  color: var(--blue-tint);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.join-hero h1 {
+  margin: 4px 0 0;
+  font-size: 40px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.join-hero p {
+  margin: 0;
+  max-width: 520px;
+  color: var(--blue-tint);
+  font-size: 14.5px;
+  line-height: 1.55;
+}
+
+.join-main {
+  margin-top: -72px;
+  max-width: 720px;
+}
+
+/* ---- Notification succès (Page 12) ---- */
+.join-success {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 20px;
+  padding: 20px 22px;
+  background: #fff;
+  border: 1.5px solid var(--yellow);
+  border-radius: 14px;
+  box-shadow: 0 12px 28px rgba(8, 51, 107, 0.12);
+}
+
+.join-success__icon {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--navy);
+  color: var(--yellow);
+}
+
+.join-success__body {
+  flex: 1;
+  min-width: 0;
+}
+
+.join-success__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.join-success__top strong {
+  color: var(--ink);
+  font-size: 16px;
+}
+
+.join-success__close {
+  border: none;
+  background: none;
+  color: var(--muted);
+  padding: 4px;
+}
+
+.join-success__body p {
+  margin: 6px 0 12px;
+  color: var(--muted);
+  font-size: 13.5px;
+  line-height: 1.5;
+}
+
+.join-success__foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.join-success__pill {
+  padding: 4px 12px;
+  border-radius: 999px;
+  background: var(--yellow-soft);
+  color: #5c4a00;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.join-success__links {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.join-success__links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--blue);
+  font-size: 13.5px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.join-success__links a:hover {
+  text-decoration: underline;
+}
+
+/* ---- Carte formulaire ---- */
+.join-card {
+  padding: 36px 40px;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  box-shadow: 0 18px 40px rgba(8, 51, 107, 0.08);
+}
+
+.join-card__badge {
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  margin: 0 auto 14px;
+  border-radius: 12px;
+  background: var(--navy);
+  color: #fff;
+}
+
+.join-card h2 {
+  margin: 0;
+  text-align: center;
+  color: var(--ink);
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.join-card__sub {
+  margin: 6px 0 24px;
+  text-align: center;
+  color: var(--muted);
+  font-size: 13.5px;
+}
+
+.join-card__sub span {
+  color: var(--blue);
+  font-weight: 600;
+}
+
+/* ---- Résumé ---- */
+.join-summary {
+  padding: 16px 20px;
+  margin-bottom: 24px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+
+.join-summary h3 {
+  margin: 0 0 12px;
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.join-summary__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.join-summary__grid span {
+  display: block;
+  color: var(--muted);
+  font-size: 11.5px;
+  margin-bottom: 4px;
+}
+
+.join-summary__grid strong {
+  color: var(--ink);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.join-summary__price {
+  color: var(--blue) !important;
+  font-size: 15px !important;
+}
+
+/* ---- Formulaire ---- */
+.join-form__title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 16px;
+  color: var(--ink);
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.join-form__title svg {
+  color: var(--blue);
+}
+
+.join-form__row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.join-field {
+  margin-bottom: 16px;
+}
+
+.join-field label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 6px;
+  color: var(--ink);
+  font-size: 12.5px;
+  font-weight: 600;
+}
+
+.join-field input,
+.join-field textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: #fff;
+  color: var(--ink);
+  font-family: inherit;
+  font-size: 13.5px;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.join-field input:focus,
+.join-field textarea:focus {
+  border-color: var(--blue);
+  box-shadow: 0 0 0 3px rgba(5, 113, 203, 0.14);
+}
+
+.join-field__hint {
+  display: block;
+  margin-top: 6px;
+  color: var(--muted);
+  font-size: 11.5px;
+}
+
+.join-form__error {
+  margin: 0 0 14px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  background: #fff0f0;
+  color: #b42318;
+  font-size: 13px;
+}
+
+.join-form__submit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  height: 46px;
+  border: none;
+  border-radius: 8px;
+  background: var(--navy);
+  color: #fff;
+  font-size: 14.5px;
+  font-weight: 600;
+  transition: background-color 0.2s, transform 0.2s var(--ease);
+}
+
+.join-form__submit:hover:not(:disabled) {
+  background: #0b4b9e;
+  transform: translateY(-1px);
+}
+
+.join-form__submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.join-form__note {
+  margin: 12px 0 0;
+  text-align: center;
+  color: var(--muted);
+  font-size: 11.5px;
+  line-height: 1.5;
+}
+
+@media (max-width: 640px) {
+  .join-hero h1 { font-size: 28px; }
+  .join-card { padding: 24px 20px; }
+  .join-summary__grid,
+  .join-form__row { grid-template-columns: 1fr; }
+}
